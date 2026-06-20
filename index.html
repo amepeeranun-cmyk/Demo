@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BrightSmile AI</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="config.js"></script>
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <main class="phone-shell">
+      <section class="screen active" id="home-screen">
+        <div class="hero-mark">♡</div>
+        <h1>Dental Scan<br /><span>Easy with AI</span></h1>
+        <div class="feature-list">
+          <div><span>✦</span>AI Precision Analysis</div>
+          <div><span>▣</span>Secure Data System</div>
+          <button class="ghost-row" id="history-from-home"><span>◷</span>ดูประวัติการตรวจ</button>
+        </div>
+        <button class="primary-button" id="start-button">Start Checking <span>›</span></button>
+      </section>
+
+      <section class="screen" id="area-screen">
+        <button class="back-button" data-target="home-screen">‹</button>
+        <h2>Select Your Area</h2>
+        <p class="muted">เลือกพื้นที่เพื่อช่วยปรับการวิเคราะห์ให้เหมาะกับสภาพแสง</p>
+        <div class="area-card" data-area="A">
+          <span class="area-icon">⌖</span>
+          <div><strong>Area A</strong><small>สำหรับพื้นที่ภาคเหนือและเขตเมือง</small></div>
+          <span>›</span>
+        </div>
+        <div class="area-card" data-area="B">
+          <span class="area-icon">⌖</span>
+          <div><strong>Area B</strong><small>สำหรับพื้นที่ภาคใต้และภาคกลาง</small></div>
+          <span>›</span>
+        </div>
+        <div class="hint">หลังเลือกพื้นที่ ระบบ AI จะปรับการวิเคราะห์ตามสภาพแวดล้อมและแสงของพื้นที่นั้น</div>
+      </section>
+
+      <section class="screen" id="scan-screen">
+        <button class="text-back" data-target="area-screen">← Home</button>
+        <label class="field-label" for="patient-name">PATIENT NAME</label>
+        <input id="patient-name" value="Mr.123" maxlength="40" />
+        <label class="scan-frame" for="image-input">
+          <img id="preview-image" alt="" />
+          <span class="corner top-left"></span><span class="corner top-right"></span>
+          <span class="corner bottom-left"></span><span class="corner bottom-right"></span>
+        </label>
+        <input id="image-input" type="file" accept="image/*" capture="environment" />
+        <h3>Position Your Face</h3>
+        <p class="muted center">ถ่ายหรืออัปโหลดภาพช่องปากให้ชัดเจนในกรอบ</p>
+        <div class="scan-controls">
+          <button class="round-button" id="reset-image">↺</button>
+          <button class="shutter" id="predict-button" aria-label="ตรวจภาพ"></button>
+          <label class="round-button" for="image-input">⌘</label>
+        </div>
+        <p class="status" id="scan-status"></p>
+      </section>
+
+      <section class="screen" id="records-screen">
+        <header class="brand-row">
+          <div><span class="brand-icon">♡</span>BrightSmile AI</div>
+          <button class="round-button small" data-target="home-screen">⌂</button>
+        </header>
+        <div class="records-title">
+          <div><h2>Your Records</h2><p class="muted">Track your dental health over time</p></div>
+          <button class="pill" id="scan-count">0 Scans</button>
+        </div>
+        <div class="records-list" id="records-list"></div>
+      </section>
+    </main>
+  </body>
+</html>
